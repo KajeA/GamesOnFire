@@ -1,9 +1,10 @@
-import { wrapAsync, createRouter } from '../../../utils/index.js';
-import { getGames } from '../../../apis/firestore/games.js';
+import { Request, Response } from 'express';
+import { wrapAsync, createRouter } from '../../../utils';
+import { getGames } from '../../../apis/firestore';
 
 export const gamesRouter = createRouter();
 
 gamesRouter.get(
-  '/',
-  wrapAsync(() => getGames()),
+    '/',
+    wrapAsync((req: Request, res: Response) => getGames()),
 );
