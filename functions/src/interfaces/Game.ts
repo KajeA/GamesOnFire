@@ -1,7 +1,14 @@
 export interface Game {
-    id?: string;
+    id: string;
     name: string;
-    releaseYear: number;
-    publisher: string;
-    [key: string]: any;
+    publisher?: string;
+    releaseYear?: number;
+    players: {
+        min: number;
+        max?: number;
+    };
+    type: string;
+    expansions?: string[];
+    baseGame?: string;
+    standalone?: boolean;
 }
