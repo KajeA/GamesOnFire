@@ -2,7 +2,7 @@ import { DocumentData, QueryDocumentSnapshot } from 'firebase-admin/firestore';
 import { getFirestore } from './getFirestore.js';
 import { memoize } from '../../utils';
 import { HttpError } from '../../classes';
-import { Game } from '../../interfaces/game.js';
+import { Game } from '../../interfaces/game';
 import * as fs from 'fs';
 import * as path from 'path';
 

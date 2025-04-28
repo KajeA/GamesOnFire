@@ -11,6 +11,17 @@ import {
 
 export const gamesRouter = createRouter();
 
+gamesRouter.post(
+  '/seed',
+  wrapAsync(async () => {
+    const result = await seedDatabase();
+    return {
+      message: 'Database seeded successfully',
+      count: result.count
+    };
+  }),
+);
+
 gamesRouter.get(
     '/',
     wrapAsync(() => getGames()),
@@ -34,15 +45,4 @@ gamesRouter.put(
 gamesRouter.delete(
     '/:id',
     wrapAsync((req: Request, res: Response) => deleteGame(req.params.id)),
-);
-
-gamesRouter.post(
-    '/seed',
-    wrapAsync(async () => {
-        const result = await seedDatabase();
-        return {
-            message: 'Database seeded successfully',
-            count: result.count
-        };
-    }),
 );

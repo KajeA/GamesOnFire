@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Layout, Table, Button, Space, Form, Input, InputNumber, Modal, message, Popconfirm, Spin, Select } from 'antd';
-import { Game } from '../../functions/src/interfaces/Game';
+import { Game } from '../../functions/src/interfaces/game.js';
 
 const { Header, Content } = Layout;
 const { Option } = Select;

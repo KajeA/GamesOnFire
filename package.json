@@ -2,5 +2,11 @@
   "devDependencies": {
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2"
+  },
+
+  "scripts": {
+    "buildImage": "docker build -t game-backend-app .",
+    "seed": "curl -X POST http://localhost:5004/demo-project/europe-west3/api/v1/games/seed",
+    "start": "docker run -p 5000:5000 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 game-backend-app"
   }
 }
