@@ -6,19 +6,28 @@ import { HttpError } from './classes/HttpError.js';
 export const app: Express = express();
 
 app.use(express.json());
+
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
 app.use('/', router);
-app.use((_req, res, next) => {
+
+app.use((_req: Request, _res: Response, next: NextFunction) => {
   next(new HttpError('Path not found', 404));
 });
-app.use((err: unknown, req: Request, res: Response, _next: NextFunction) => {
+
+app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
   console.error('Received error:', err);
+
   if (err instanceof Error) {
     const statusCode = err instanceof HttpError ? err.statusCode : 500;
     res.status(statusCode).json({
       error: err.message,
+    });
+  } else if (err instanceof Error) {
+    res.status(500).json({
+      error:err.message,
     });
   } else if (typeof err === 'string') {
     res.status(500).json({

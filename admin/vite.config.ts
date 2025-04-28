@@ -11,6 +11,7 @@ export default defineConfig({
     minify: false,
   },
   plugins: [react()],
+  base: './',
   define: {
     __APP_ENV__: JSON.stringify(env),
   },

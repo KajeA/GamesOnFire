@@ -1,5 +1,5 @@
-import { Router } from 'express';
+import { Router, RouterOptions } from 'express';
 
-export function createRouter(options = {}): Router {
+export function createRouter(options: RouterOptions = {}): Router {
   return Router(options);
 }
