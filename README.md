@@ -1,5 +1,65 @@
 # Game Backend Developer Assignment
 
+## To run the completed project with Docker:
+
+### Build the Docker image:
+`npm run buildImage`
+
+### Run the Docker container:
+`npm run start`
+
+### Access the services:
+
+Firebase Emulator UI: http://localhost:5000
+
+Admin Dashboard: http://localhost:5002
+
+### Seed the database:
+`npm run seed`
+
+
+## To run the completed project locally:
+
+### Install project dependencies:
+Install Firebase CLI globally
+`npm install -g firebase-tools`
+
+### Install Functions dependencies
+`cd functions`
+
+`npm install`
+
+`npm run build`
+
+`cd ..`
+
+### Install Admin dependencies
+`cd admin`
+
+`npm install`
+
+`npm run build`
+
+`cd ..`
+
+### Start the Firebase emulators
+
+`firebase emulators:start --project=demo-project`
+
+### Access the services:
+
+Firebase Emulator UI: http://localhost:5000
+
+Admin Dashboard: http://localhost:5002
+
+### Seed Database with curl or UI Button
+
+`curl -X POST http://localhost:5102/demo-project/europe-west3/api/v1/games/seed`
+
+
+##
+##
+
 This repository contains the boilerplate code for a coding assignment.
 You have received 4 assignment tasks in a separate PDF by email.
 

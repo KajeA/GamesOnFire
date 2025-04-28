@@ -14,6 +14,7 @@ const getCollection = memoize(() =>
 export async function getGames(): Promise<Game[]> {
   try {
     const result = await getCollection().get();
+
     return result.docs.map((snap: QueryDocumentSnapshot<DocumentData>) => ({
       id: snap.id,
       ...snap.data()
@@ -44,6 +45,7 @@ export async function getGame(id: string): Promise<Game> {
 export async function addGame(gameData: Omit<Game, 'id'>): Promise<Game> {
   try {
     const docRef = await getCollection().add(gameData);
+
     return { id: docRef.id, ...gameData };
   } catch (error) {
     console.error('Error adding game:', error);
